@@ -6,8 +6,10 @@
 
 @section('movies')
 	<div class="blog-post">
-        <h2 class="blog-post-title">Sample blog post</h2>
-        <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-        <hr>
+		@foreach($movies as $movie)
+	        <a href="{{ route('single-movie', ['id' => $movie->id]) }}" class="blog-post-title">{{ $movie->title }}</a>
+	        <p>{{substr($movie->storyline, 0, 100) }}...</p>
+	        <hr>
+        @endforeach
     </div><!-- /.blog-post -->
 @endsection
