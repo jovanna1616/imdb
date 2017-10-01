@@ -25,4 +25,9 @@ class Movie extends Model
 	public function comments() {
 		return $this->hasMany(Comment::class);
 	}
+
+	static function getLastFiveMoviesForSidebar() {
+		$movies = Movie::latest()->limit(5)->get();
+		return $movies;
+	}
 }
