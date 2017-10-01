@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use Carbon\Carbon;
 
 class MoviesController extends Controller
 {
@@ -25,7 +26,7 @@ class MoviesController extends Controller
      */
     public function create()
     {
-        //
+        return view('movies.create');
     }
 
     /**
@@ -36,7 +37,19 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dinamicly create '{year}' from Movie Model;
+        // need to include Carbon\Carbon to use year() method. We call that method $now->year
+        $now = new Carbon();
+        $rules = Movie::STORE_RULES;
+        
+        $rules['year'] = str_replace('{year}', $now->year + 1, $rules['year']);
+        // 1. izvrsi validaciju unetih podataka kroz formu
+        $request->validate($rules);
+        // 2. salji i sacuvaj u bazi
+        $movie = Movie::create($request->all());
+
+        // 3. redirektuj na stranicu sa svim filovima
+        return redirect()->route('all-movies');
     }
 
     /**

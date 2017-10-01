@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 blog-main">
-                    @yield('movies')
+                    @yield('content')
                 </div><!-- /.col-sm-8 blog-main -->
                 @include('partials.sidebar')
             </div><!-- /.row -->

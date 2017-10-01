@@ -4,7 +4,7 @@
 	ALL MOVIES
 @endsection
 
-@section('movies')
+@section('content')
 	<div class="blog-post">
 		@foreach($movies as $movie)
 	        <a href="{{ route('single-movie', ['id' => $movie->id]) }}" class="blog-post-title">{{ $movie->title }}</a>

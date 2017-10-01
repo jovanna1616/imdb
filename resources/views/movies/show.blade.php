@@ -4,10 +4,8 @@
 	{{ $movie->title }}
 @endsection
 
-@section('movies')
+@section('content')
 	<div class="blog-post">
-		
-	        
-	        <p>{{$movie->storyline }}</p>        
+        <p>{{$movie->storyline }}</p>        
     </div><!-- /.blog-post -->
 @endsection
