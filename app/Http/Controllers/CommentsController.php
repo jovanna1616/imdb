@@ -8,14 +8,14 @@ use App\Comment;
 
 class CommentsController extends Controller
 {
-    public function store(Request $request, $movieId) {
+    public function store(Request $request, $movie_id) {
 
-    	$movie = Movie::find($movieId);
+    	$movie = Movie::find($movie_id);
     	$request->validate(Comment::STORE_RULES);
     	$movie->comments()->create($request->all());
     	return redirect()->route(
     		'single-movie',
-    		['id' => $movieId]
+    		['id' => $movie_id]
     	);
 
     }

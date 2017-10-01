@@ -1,6 +1,7 @@
 <?php
 use App\Movie;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\GenresController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,9 +43,16 @@ Route::get('/movies/{id}',
     ]
 );
 
-Route::post('/movies/{movieId}/comments', 
+Route::post('/movies/{movie_id}/comments', 
     [
         'as' => 'comments-movie',
         'uses' => 'CommentsController@store'
+    ]
+);
+
+Route::get('/movies/genres/{genre}', 
+    [
+        'as' => 'movies-genre',
+        'uses' => 'GenresController@show'
     ]
 );

@@ -8,7 +8,7 @@
 	<div class="blog-post">
 		<p>Director: {{ $movie->director }}</p>
 		<p>Year of publishing: {{ $movie->year }}</p>
-		<p>Genre: <a href="#">{{ $movie->genre }}</a></p>
+		<p>Genre: <a href="{{ route('movies-genre', ['genre' => $movie->genre]) }}">{{ $movie->genre }}</a></p>
         <p>{{$movie->storyline }}</p>        
     </div><!-- /.blog-post -->
 
