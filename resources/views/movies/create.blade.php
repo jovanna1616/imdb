@@ -53,7 +53,6 @@
 	                'partials.error-messages',
 	                ['fieldTitle' => 'year']
             	)
-
 	        </div>
 
 	        <div class="form-group">

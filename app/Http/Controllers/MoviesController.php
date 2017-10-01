@@ -43,6 +43,7 @@ class MoviesController extends Controller
         $rules = Movie::STORE_RULES;
         
         $rules['year'] = str_replace('{year}', $now->year + 1, $rules['year']);
+        
         // 1. izvrsi validaciju unetih podataka kroz formu
         $request->validate($rules);
         // 2. salji i sacuvaj u bazi
@@ -60,7 +61,7 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        $movie = Movie::find($id);
+        $movie = Movie::with('comments')->find($id);
         return view('movies/show', compact('movie'));
     }
 
